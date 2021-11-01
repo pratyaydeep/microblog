@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from microblog.views import frontpage, post
+
 urlpatterns = [
+    path('', frontpage, name='frontpage'),
+    path('post/<slug:slug>', post, name='post'),
     path('admin/', admin.site.urls),
 ]
