@@ -4,7 +4,7 @@
     <h1 class="title">{{ post.title }}</h1>
     <small>Posted at {{ post.date_added }}</small>
     <p><strong>{{ post.intro }}</strong></p>
-    <p>{{ post.body }}</p>
+    <p>{{ post.body |urlize }}</p>
 
     <hr>
 
@@ -30,7 +30,7 @@
 
     <h2 class="subtitle">Add Comment</h2>
 
-    <form method="post" action="{% url 'post' post.slug %}">
+    <form method="post" action="{% url 'post' post.id %}">
         {% csrf_token %}
         {{ form.as_p }}
 

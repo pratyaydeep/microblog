@@ -20,6 +20,6 @@ from microblog.views import frontpage, post
 
 urlpatterns = [
     path('', frontpage, name='frontpage'),
-    path('post/<slug:slug>', post, name='post'),
+    path('post/<int:id>', post, name='post'),
     path('admin/', admin.site.urls),
 ]

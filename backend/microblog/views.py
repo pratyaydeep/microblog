@@ -8,8 +8,8 @@ def frontpage(request):
     posts = Post.objects.all()
     return render(request, 'microblog/frontpage.html', {'posts': posts})
 
-def post(request, slug):
-    post = Post.objects.get(slug=slug)
+def post(request, id):
+    post = Post.objects.get(id=id)
 
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -18,7 +18,7 @@ def post(request, slug):
             comment.post = post
             comment.save()
 
-            return redirect('post', slug=post.slug)
+            return redirect('post', id=post.id)
 
     else:
         form = CommentForm()
